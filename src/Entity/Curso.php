@@ -6,7 +6,7 @@ namespace Alura\Cursos\Entity;
  * @Entity
  * @Table(name="cursos")
  */
-class Curso
+class Curso implements \JsonSerializable
 {
     /**
      * @Id
@@ -37,5 +37,20 @@ class Curso
     public function setDescricao(string $descricao): void
     {
         $this->descricao = $descricao;
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'descricao' => $this->descricao
+        ];
     }
 }
