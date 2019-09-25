@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Alura\Cursos\Helper;
-
 
 trait RenderizadorDeHtmlTrait
 {
